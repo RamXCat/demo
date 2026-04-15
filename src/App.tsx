@@ -33,14 +33,15 @@ export default function App() {
           variants={revealVariants}
         >
           <div className="mb-6 flex flex-col items-center">
-            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-2">
+            <p className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-[0.4em] font-bold mb-8 opacity-80">Sri Devaraj Urs Educational Trust (R)</p>
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-4">
               <div className="logo-glow-container h-16 sm:h-24 w-16 sm:w-24">
                 <div className="logo-spinning-glow"></div>
                 <div className="logo-inner">
                   <img src="/logo/jalappa_logo.png" alt="Jalappa Logo" className="h-full w-full object-contain" />
                 </div>
               </div>
-              <span className="font-mono text-xl sm:text-2xl font-bold uppercase tracking-widest text-cyber text-center max-w-[200px] sm:max-w-none">R.L. Jalappa Institute of Technology</span>
+              <span className="font-mono text-xl sm:text-2xl font-bold uppercase tracking-widest text-cyber text-center max-w-[200px] sm:max-w-none shadow-cyber/20">R.L. Jalappa Institute of Technology</span>
               <div className="logo-glow-container h-16 sm:h-24 w-16 sm:w-24">
                 <div className="logo-spinning-glow"></div>
                 <div className="logo-inner">
@@ -48,20 +49,31 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 sm:gap-4 mt-2">
-              <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
-                <div className="logo-spinning-glow"></div>
-                <div className="logo-inner">
-                  <img src="/logo/cse(ai)_logo.png" alt="CSE(AI) Logo" className="h-full w-full object-contain" />
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-2">
+                <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
+                  <div className="logo-spinning-glow"></div>
+                  <div className="logo-inner">
+                    <img src="/logo/cse(ai)_logo.png" alt="CSE(AI) Logo" className="h-full w-full object-contain" />
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.2em] mb-1">Organised by</span>
+                  <span className="text-sm sm:text-base text-slate-300 uppercase font-bold tracking-wider text-center max-w-[300px] sm:max-w-none">
+                    Computer Science & Engineering<br/>
+                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)</span>
+                  </span>
+                </div>
+                <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
+                  <div className="logo-spinning-glow"></div>
+                  <div className="logo-inner">
+                    <img src="/logo/nuxes.jpeg" alt="Nexus Logo" className="h-full w-full object-contain" />
+                  </div>
                 </div>
               </div>
-              <span className="text-sm sm:text-base text-slate-400 uppercase font-semibold tracking-wider text-center">Dept of CSE (AIML) • AI Nexus Presents</span>
-              <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
-                <div className="logo-spinning-glow"></div>
-                <div className="logo-inner">
-                  <img src="/logo/nuxes.jpeg" alt="Nexus Logo" className="h-full w-full object-contain" />
-                </div>
-              </div>
+              <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-widest mt-4 px-4 max-w-2xl mx-auto opacity-70 italic">
+                (Approved by AICTE, New Delhi | Affiliated to Visvewaraya Technological University, Belagavi)
+              </p>
             </div>
           </div>
           <h1 className="font-mono font-bold leading-none mb-6 animate-float">
@@ -254,68 +266,90 @@ export default function App() {
           <h3 className="text-3xl font-bold text-white tracking-tight">Domains</h3>
         </motion.div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           <motion.div 
-            className="group"
+            className="group h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={revealVariants}
             transition={{ delay: 0.1 }}
           >
-            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-cyber/30">
+            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-cyber/30 h-full flex flex-col">
               <div className="absolute -top-4 -right-4 text-8xl opacity-5 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🤖</div>
-              <div className="relative z-10">
-                <h4 className="text-xl font-bold text-cyber mb-2">AI for Social Impact</h4>
+              <div className="relative z-10 flex flex-col h-full">
+                <h4 className="text-xl font-bold text-cyber mb-2">1. AI for Social Impact</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Code with a conscience, not just caffeine."</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-[9px] px-3 py-1.5 bg-cyber/10 text-cyber border border-cyber/20 rounded-full font-bold uppercase tracking-tighter">Accessibility</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-cyber/10 text-cyber border border-cyber/20 rounded-full font-bold uppercase tracking-tighter">Rural Tech</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-cyber/10 text-cyber border border-cyber/20 rounded-full font-bold uppercase tracking-tighter">Bias Detection</span>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {['Education', 'Accessibility', 'Rural Tech', 'Bias Detection', 'Mental Health', 'Smart Governance'].map(tag => (
+                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-cyber/10 text-cyber border border-cyber/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
+                  ))}
                 </div>
               </div>
             </div>
           </motion.div>
 
           <motion.div 
-            className="group"
+            className="group h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={revealVariants}
             transition={{ delay: 0.2 }}
           >
-            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-neon/30">
+            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-neon/30 h-full flex flex-col">
               <div className="absolute -top-4 -right-4 text-8xl opacity-5 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🔐</div>
-              <div className="relative z-10">
-                <h4 className="text-xl font-bold text-neon mb-2">Cyber & Trust</h4>
-                <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"The wild west with better WiFi."</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-[9px] px-3 py-1.5 bg-neon/10 text-neon border border-neon/20 rounded-full font-bold uppercase tracking-tighter">Web3</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-neon/10 text-neon border border-neon/20 rounded-full font-bold uppercase tracking-tighter">Blockchain</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-neon/10 text-neon border border-neon/20 rounded-full font-bold uppercase tracking-tighter">Privacy</span>
+              <div className="relative z-10 flex flex-col h-full">
+                <h4 className="text-xl font-bold text-neon mb-2">2. Cybersecurity & Blockchain</h4>
+                <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Basically the wild west with WiFi."</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {['Phishing Detection', 'Web3 Security', 'Blockchain Voting', 'Privacy Tools', 'Fraud Prevention'].map(tag => (
+                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-neon/10 text-neon border border-neon/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
+                  ))}
                 </div>
               </div>
             </div>
           </motion.div>
 
           <motion.div 
-            className="group"
+            className="group h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={revealVariants}
             transition={{ delay: 0.3 }}
           >
-            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-white/30">
+            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-white/30 h-full flex flex-col">
               <div className="absolute -top-4 -right-4 text-8xl opacity-5 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🌐</div>
-              <div className="relative z-10">
-                <h4 className="text-xl font-bold text-white mb-2">Smart Systems (IoT)</h4>
+              <div className="relative z-10 flex flex-col h-full">
+                <h4 className="text-xl font-bold text-white mb-2">3. IoT & Smart Systems</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Turning dumb objects into overachievers."</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">Smart Cities</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">Automation</span>
-                  <span className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">Edge AI</span>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {['Smart Cities', 'Wearables', 'Automation', 'Environment', 'Smart Homes'].map(tag => (
+                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="group h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={revealVariants}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-blue-400/30 h-full flex flex-col">
+              <div className="absolute -top-4 -right-4 text-8xl opacity-5 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🏥</div>
+              <div className="relative z-10 flex flex-col h-full">
+                <h4 className="text-xl font-bold text-blue-400 mb-2">4. Healthcare & Wellness Tech</h4>
+                <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Keeping humans alive so they can attend more hackathons."</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {['Health Apps', 'AI Diagnosis', 'Mental Wellness', 'Telemedicine'].map(tag => (
+                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-blue-400/10 text-blue-400 border border-blue-400/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -459,9 +493,10 @@ export default function App() {
       {/* Footer */}
       <footer className="px-6 py-16 border-t border-white/5 bg-black text-center">
         <div className="font-mono font-bold text-cyber mb-6 tracking-widest">HACKVERSE 2K26</div>
-        <div className="text-slate-500 text-[11px] uppercase tracking-widest mb-4 leading-relaxed font-medium">
-          R.L. Jalappa Institute of Technology<br/>
-          Kodigehalli, Doddaballapur, Bengaluru
+        <div className="text-slate-500 text-[10px] sm:text-[11px] uppercase tracking-widest mb-6 leading-relaxed font-medium px-4">
+          Sri Devaraj Urs Educational Trust (R)<br/>
+          <span className="text-white font-bold">R.L. JALAPPA INSTITUTE OF TECHNOLOGY</span><br/>
+          Kodigehalli, Doddaballapur 561203, Bengaluru Rural District, Karnataka, India.
         </div>
         <a 
           href="https://maps.app.goo.gl/YkiEB8JC96HwJpFv9" 
