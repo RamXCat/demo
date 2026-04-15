@@ -66,8 +66,7 @@ export default function App() {
                   <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.2em] mb-1">Organised by</span>
                   <span className="text-sm sm:text-base text-slate-300 uppercase font-bold tracking-wider text-center max-w-[300px] sm:max-w-none">
                     Computer Science & Engineering<br/>
-                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)</span><br/>
-                    <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.3em] mt-2 block">AI Nexus Presents</span>
+                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)<br/>AI Nexus Presents</span>
                   </span>
                 </div>
                 <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
