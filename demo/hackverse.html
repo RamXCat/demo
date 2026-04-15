@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HackVerse 2026 — Code Till Dawn | RLJIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:#060916;color:#e8eaf6;overflow-x:hidden;}
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.wrapper{position:relative;z-index:1;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid rgba(100,180,255,0.1);background:rgba(6,9,22,0.85);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Space Mono',monospace;font-size:1.1rem;color:#7dd3fc;letter-spacing:2px;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{color:#94a3b8;font-size:0.85rem;text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#7dd3fc;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem 3rem;}
+.college-tag{font-size:0.8rem;color:#7dd3fc;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem;opacity:.8;}
+.college-name{font-size:0.95rem;color:#94a3b8;margin-bottom:2rem;}
+.event-label{font-family:'Space Mono',monospace;font-size:0.75rem;color:#a78bfa;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;background:rgba(167,139,250,0.1);padding:.4rem 1.2rem;border-radius:20px;border:1px solid rgba(167,139,250,0.2);display:inline-block;}
+h1.hero-title{font-family:'Space Mono',monospace;font-size:clamp(3.5rem,10vw,7rem);font-weight:700;line-height:.95;letter-spacing:-2px;margin-bottom:.75rem;}
+.hack{color:#ffffff;}
+.verse{background:linear-gradient(135deg,#7dd3fc,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tagline{font-family:'Space Mono',monospace;font-size:0.9rem;color:#475569;letter-spacing:5px;margin-bottom:2.5rem;}
+.hero-meta{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.hero-meta-item{text-align:center;}
+.hero-meta-label{font-size:0.7rem;color:#475569;letter-spacing:2px;text-transform:uppercase;margin-bottom:.2rem;}
+.hero-meta-value{font-size:1.15rem;font-weight:700;color:#e2e8f0;}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.btn-primary{padding:.9rem 2.75rem;background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;border:none;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none;display:inline-block;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(139,92,246,0.45);}
+.btn-secondary{padding:.9rem 2.75rem;background:transparent;color:#7dd3fc;border:1px solid rgba(125,211,252,0.3);border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;}
+.btn-secondary:hover{background:rgba(125,211,252,0.08);border-color:rgba(125,211,252,0.6);}
+
+/* SECTIONS */
+.section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+.section-label{font-family:'Space Mono',monospace;font-size:0.7rem;color:#a78bfa;letter-spacing:4px;text-transform:uppercase;margin-bottom:.6rem;}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:2.5rem;color:#f1f5f9;}
+.glow-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(125,211,252,0.25),transparent);max-width:700px;margin:0 auto;}
+
+/* COUNTDOWN */
+.countdown{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;}
+.cd-box{background:rgba(255,255,255,0.03);border:1px solid rgba(125,211,252,0.15);border-radius:14px;padding:1.75rem 2.25rem;text-align:center;min-width:110px;}
+.cd-num{font-family:'Space Mono',monospace;font-size:2.8rem;font-weight:700;color:#7dd3fc;line-height:1;}
+.cd-label{font-size:0.68rem;color:#475569;letter-spacing:3px;text-transform:uppercase;margin-top:.5rem;}
+
+/* PRIZES */
+.prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.prize-card{border-radius:16px;padding:2.25rem 1.5rem;text-align:center;transition:transform .3s;}
+.prize-card:hover{transform:translateY(-5px);}
+.prize-card.gold{background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(245,158,11,0.04));border:1px solid rgba(251,191,36,0.25);}
+.prize-card.silver{background:linear-gradient(135deg,rgba(148,163,184,0.12),rgba(100,116,139,0.04));border:1px solid rgba(148,163,184,0.25);}
+.prize-card.bronze{background:linear-gradient(135deg,rgba(205,127,50,0.12),rgba(180,100,30,0.04));border:1px solid rgba(205,127,50,0.25);}
+.prize-rank{font-size:3rem;margin-bottom:.5rem;}
+.prize-place{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#64748b;margin-bottom:.5rem;}
+.prize-amount{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;}
+.prize-card.gold .prize-amount{color:#fbbf24;}
+.prize-card.silver .prize-amount{color:#cbd5e1;}
+.prize-card.bronze .prize-amount{color:#cd7f32;}
+
+/* INFO CARDS */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2rem;}
+.info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem;text-align:center;}
+.info-icon{font-size:1.6rem;margin-bottom:.75rem;}
+.info-label{font-size:.72rem;color:#475569;text-transform:uppercase;letter-spacing:2px;margin-bottom:.4rem;}
+.info-value{font-size:1.1rem;font-weight:700;color:#f1f5f9;}
+
+/* DOMAINS */
+.domains{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.domain-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem;transition:all .3s;}
+.domain-card:hover{background:rgba(255,255,255,0.05);border-color:rgba(125,211,252,0.25);transform:translateY(-4px);}
+.domain-icon{font-size:2.25rem;margin-bottom:1rem;}
+.domain-name{font-size:1.05rem;font-weight:700;margin-bottom:.75rem;color:#f1f5f9;}
+.domain-desc{font-size:0.82rem;color:#64748b;line-height:1.65;margin-bottom:1rem;font-style:italic;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.dtag{font-size:0.68rem;background:rgba(125,211,252,0.07);border:1px solid rgba(125,211,252,0.15);color:#7dd3fc;padding:.25rem .65rem;border-radius:20px;}
+
+/* RULES */
+.rules-list{display:flex;flex-direction:column;gap:.75rem;}
+.rule-item{display:flex;gap:1.25rem;align-items:flex-start;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1rem 1.5rem;}
+.rule-num{font-family:'Space Mono',monospace;font-size:.78rem;color:#a78bfa;min-width:28px;font-weight:700;padding-top:2px;}
+.rule-text{font-size:.9rem;color:#94a3b8;line-height:1.65;}
+
+/* JUDGING */
+.judge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1.5rem;}
+.judge-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.25rem;text-align:center;}
+.judge-pct{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;margin-bottom:.3rem;}
+.judge-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:1.5px;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+@media(max-width:640px){.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+.contact-group h3{font-size:.7rem;color:#a78bfa;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;font-family:'Space Mono',monospace;}
+.contact-person{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.85rem;}
+.contact-name{color:#cbd5e1;}
+.contact-num{color:#7dd3fc;font-family:'Space Mono',monospace;font-size:.78rem;}
+.contact-num a{color:inherit;text-decoration:none;}
+.contact-num a:hover{text-decoration:underline;}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.05);font-size:.8rem;color:#334155;margin-top:2rem;}
+footer a{color:#475569;text-decoration:none;}
+footer a:hover{color:#7dd3fc;}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="wrapper">
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">HACK//VERSE</span>
+  <div class="nav-links">
+    <a href="#countdown">Countdown</a>
+    <a href="#prizes">Prizes</a>
+    <a href="#domains">Domains</a>
+    <a href="#rules">Rules</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="college-tag">R.L. Jalappa Institute of Technology</div>
+  <div class="college-name">Sri Devaraj Urs Educational Trust · Dept. of CSE (AIML) · AI Nexus Presents</div>
+  <div class="event-label">24-Hour Hackathon · Hackathon 2K26</div>
+  <h1 class="hero-title">
+    <span class="hack">HACK</span><br>
+    <span class="verse">VERSE</span>
+  </h1>
+  <div class="tagline">CODE TILL DAWN</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Date</div>
+      <div class="hero-meta-value">8th &amp; 9th May 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Duration</div>
+      <div class="hero-meta-value">24 Hours</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Prize Pool</div>
+      <div class="hero-meta-value">₹20,000</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Entry Fee</div>
+      <div class="hero-meta-value">₹600 / team</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Team Size</div>
+      <div class="hero-meta-value">2 – 4 Members</div>
+    </div>
+  </div>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" id="registerBtn">Register Now →</a>
+    <a class="btn-secondary" href="#domains">Explore Domains</a>
+  </div>
+</section>
+
+<div style="padding:0 2rem;"><div class="glow-divider"></div></div>
+
+<!-- COUNTDOWN -->
+<section id="countdown" style="text-align:center;padding:5rem 2rem;">
+  <div class="section-label" style="margin-bottom:.6rem;">Launching in</div>
+  <div class="section-title" style="margin-bottom:2rem;">Time Until HackVerse</div>
+  <div class="countdown">
+    <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Days</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Hours</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Minutes</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">Seconds</div></div>
+  </div>
+</section>
+
+<div style="padding:0 2rem;"><div class="glow-divider"></div></div>
+
+<!-- PRIZES -->
+<section id="prizes" class="section">
+  <div class="section-label">Winnings</div>
+  <div class="section-title">Prize Pool — ₹20,000</div>
+  <div class="prizes">
+    <div class="prize-card gold">
+      <div class="prize-rank">🥇</div>
+      <div class="prize-place">First Place</div>
+      <div class="prize-amount">₹10,000</div>
+    </div>
+    <div class="prize-card silver">
+      <div class="prize-rank">🥈</div>
+      <div class="prize-place">Second Place</div>
+      <div class="prize-amount">₹6,000</div>
+    </div>
+    <div class="prize-card bronze">
+      <div class="prize-rank">🥉</div>
+      <div class="prize-place">Third Place</div>
+      <div class="prize-amount">₹4,000</div>
+    </div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card"><div class="info-icon">👥</div><div class="info-label">Team Size</div><div class="info-value">2 to 4 members</div></div>
+    <div class="info-card"><div class="info-icon">💸</div><div class="info-label">Registration Fee</div><div class="info-value">₹600 per team</div></div>
+    <div class="info-card"><div class="info-icon">⏱</div><div class="info-label">Duration</div><div class="info-value">24 continuous hours</div></div>
+    <div class="info-card"><div class="info-icon">📅</div><div class="info-label">Date</div><div class="info-value">8th – 9th May 2026</div></div>
+  </div>
+</section>
+
+<div style="padding:0 2rem;"><div class="glow-divider"></div></div>
+
+<!-- DOMAINS -->
+<section id="domains" class="section">
+  <div class="section-label">Problem Spaces</div>
+  <div class="section-title">Hack Domains</div>
+  <div class="domains">
+    <div class="domain-card">
+      <div class="domain-icon">🤖</div>
+      <div class="domain-name">AI for Social Impact</div>
+      <div class="domain-desc">Code with a conscience, not just caffeine.</div>
+      <div class="domain-tags">
+        <span class="dtag">AI in Education</span>
+        <span class="dtag">Accessibility</span>
+        <span class="dtag">Rural Tech</span>
+        <span class="dtag">Bias Detection</span>
+        <span class="dtag">Mental Health</span>
+        <span class="dtag">Disaster Prediction</span>
+        <span class="dtag">Smart Governance</span>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-icon">🔐</div>
+      <div class="domain-name">Cybersecurity &amp; Trust Tech</div>
+      <div class="domain-desc">Because the internet is basically the wild west with WiFi.</div>
+      <div class="domain-tags">
+        <span class="dtag">Phishing Detection</span>
+        <span class="dtag">Blockchain Voting</span>
+        <span class="dtag">Fraud Prevention</span>
+        <span class="dtag">Privacy Tools</span>
+        <span class="dtag">Smart Contracts</span>
+        <span class="dtag">Web3 Apps</span>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-icon">🌐</div>
+      <div class="domain-name">IoT &amp; Smart Systems</div>
+      <div class="domain-desc">Turning dumb objects into overachievers.</div>
+      <div class="domain-tags">
+        <span class="dtag">Smart Cities</span>
+        <span class="dtag">Smart Homes</span>
+        <span class="dtag">Wearables</span>
+        <span class="dtag">Automation</span>
+        <span class="dtag">Env. Monitoring</span>
+        <span class="dtag">Edge Computing</span>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-icon">🏥</div>
+      <div class="domain-name">Healthcare &amp; Wellness Tech</div>
+      <div class="domain-desc">Keeping humans alive so they can attend more hackathons.</div>
+      <div class="domain-tags">
+        <span class="dtag">Health Monitoring</span>
+        <span class="dtag">AI Diagnosis</span>
+        <span class="dtag">Mental Wellness</span>
+        <span class="dtag">Telemedicine</span>
+        <span class="dtag">Remote Patient</span>
+        <span class="dtag">Assistive Devices</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:0 2rem;"><div class="glow-divider"></div></div>
+
+<!-- RULES -->
+<section id="rules" class="section">
+  <div class="section-label">Guidelines</div>
+  <div class="section-title">Rules &amp; Submission</div>
+  <div class="rules-list">
+    <div class="rule-item"><span class="rule-num">01</span><span class="rule-text">All development must happen during the 24-hour hackathon window. Pre-built complete projects are strictly prohibited.</span></div>
+    <div class="rule-item"><span class="rule-num">02</span><span class="rule-text">Open-source libraries, APIs, and pre-built templates are allowed — but core logic must be developed on-site during the event.</span></div>
+    <div class="rule-item"><span class="rule-num">03</span><span class="rule-text">Bring Your Own Problem (BYOP) aligned with a listed domain, or choose from predefined problem statements provided by organizers.</span></div>
+    <div class="rule-item"><span class="rule-num">04</span><span class="rule-text">Each team must submit: Source code (GitHub or equivalent), Presentation (PPT/PDF), Demo video (if applicable), Problem statement, Tech stack &amp; future scope.</span></div>
+    <div class="rule-item"><span class="rule-num">05</span><span class="rule-text">Plagiarism leads to immediate disqualification. Copying code from other teams or using unethical methods is strictly prohibited.</span></div>
+    <div class="rule-item"><span class="rule-num">06</span><span class="rule-text">Internet access is permitted. Participants must bring their own laptops and hardware. Mentors will be available for guidance throughout.</span></div>
+    <div class="rule-item"><span class="rule-num">07</span><span class="rule-text">Maintain respectful and professional behavior at all times. Violations may result in disqualification. Judges' decisions are final.</span></div>
+    <div class="rule-item"><span class="rule-num">08</span><span class="rule-text">Final presentations: 5–7 minutes demo followed by 2–3 minutes Q&amp;A with the judging panel.</span></div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <div class="section-label">How you're scored</div>
+    <div class="judge-grid">
+      <div class="judge-card"><div class="judge-pct" style="color:#a78bfa;">25%</div><div class="judge-label">Innovation &amp; Creativity</div></div>
+      <div class="judge-card"><div class="judge-pct" style="color:#7dd3fc;">25%</div><div class="judge-label">Technical Implementation</div></div>
+      <div class="judge-card"><div class="judge-pct" style="color:#34d399;">20%</div><div class="judge-label">Impact &amp; Feasibility</div></div>
+      <div class="judge-card"><div class="judge-pct" style="color:#fbbf24;">15%</div><div class="judge-label">Design &amp; User Experience</div></div>
+      <div class="judge-card"><div class="judge-pct" style="color:#f87171;">15%</div><div class="judge-label">Presentation &amp; Demo</div></div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:0 2rem;"><div class="glow-divider"></div></div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-label">Get in touch</div>
+  <div class="section-title">Coordinators</div>
+  <div class="contact-grid">
+    <div class="contact-group">
+      <h3>Student Coordinators</h3>
+      <div class="contact-person"><span class="contact-name">Bhaskar P</span><span class="contact-num"><a href="tel:9380293876">9380293876</a></span></div>
+      <div class="contact-person"><span class="contact-name">Chandan V</span><span class="contact-num"><a href="tel:9741521788">9741521788</a></span></div>
+      <div class="contact-person"><span class="contact-name">Rahim Ulla T C</span><span class="contact-num"><a href="tel:7019061961">7019061961</a></span></div>
+      <div class="contact-person"><span class="contact-name">Poornashree K M</span><span class="contact-num"><a href="tel:9611330100">9611330100</a></span></div>
+      <div class="contact-person"><span class="contact-name">Swathi T</span><span class="contact-num"><a href="tel:6362555908">6362555908</a></span></div>
+      <div class="contact-person"><span class="contact-name">Madhusudhan R</span><span class="contact-num"><a href="tel:8217482020">8217482020</a></span></div>
+      <div class="contact-person"><span class="contact-name">Likith R</span><span class="contact-num"><a href="tel:7411915564">7411915564</a></span></div>
+    </div>
+    <div>
+      <div class="contact-group">
+        <h3>Faculty Coordinators</h3>
+        <div class="contact-person"><span class="contact-name">Mrs. Nandini K V</span><span class="contact-num"><a href="tel:9972002194">9972002194</a></span></div>
+        <div class="contact-person"><span class="contact-name">Mrs. Rekha K P</span><span class="contact-num"><a href="tel:9620016205">9620016205</a></span></div>
+      </div>
+      <div class="contact-group" style="margin-top:2rem;">
+        <h3>Leadership</h3>
+        <div class="contact-person"><span class="contact-name">Dr. Manjunatha B.N (HoD)</span><span class="contact-num"><a href="tel:9482397464">9482397464</a></span></div>
+        <div class="contact-person"><span class="contact-name">Dr. P Vijay Karthik (Principal)</span><span class="contact-num"><a href="tel:7259893093">7259893093</a></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:4rem;">
+    <a class="btn-primary" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" style="font-size:1.1rem;padding:1.1rem 3.5rem;">Register Your Team →</a>
+    <div style="margin-top:1rem;font-size:.82rem;color:#475569;">Team size: 2–4 · Registration fee: ₹600 · 8th–9th May 2026</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:.6rem;font-size:.9rem;color:#475569;">HackVerse 2K26 · R.L. Jalappa Institute of Technology</div>
+  <div style="margin-bottom:.4rem;">Dept. of CSE (AIML) · AI Nexus</div>
+  <div><a href="https://rljit.in" target="_blank">rljit.in</a> · <a href="mailto:principal@rljit.in">principal@rljit.in</a> · 080-27626800</div>
+  <div style="margin-top:1rem;font-size:.7rem;color:#1e293b;">Kodigehalli, Doddaballapur 561203, Bengaluru Rural District, Karnataka, India</div>
+</footer>
+
+</div><!-- /wrapper -->
+
+<script>
+/* ── PARTICLES ── */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, stars = [];
+
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+
+function initStars() {
+  stars = [];
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.3 + 0.2,
+      a: Math.random(), da: (Math.random() - 0.5) * 0.004,
+      vx: (Math.random() - 0.5) * 0.12, vy: (Math.random() - 0.5) * 0.12
+    });
+  }
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, W, H);
+  stars.forEach(s => {
+    s.a = Math.max(0.05, Math.min(1, s.a + s.da));
+    if (s.a <= 0.05 || s.a >= 1) s.da *= -1;
+    s.x = (s.x + s.vx + W) % W;
+    s.y = (s.y + s.vy + H) % H;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(125,211,252,${s.a * 0.7})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawParticles);
+}
+
+resize(); initStars(); drawParticles();
+window.addEventListener('resize', () => { resize(); initStars(); });
+
+/* ── COUNTDOWN ── */
+function updateCountdown() {
+  const target = new Date('2026-05-08T09:00:00').getTime();
+  const diff = Math.max(0, target - Date.now());
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
