@@ -41,7 +41,12 @@ export default function App() {
                   <img src="/logo/jalappa_logo.png" alt="Jalappa Logo" className="h-full w-full object-contain" />
                 </div>
               </div>
-              <span className="font-mono text-xl sm:text-2xl font-bold uppercase tracking-widest text-cyber text-center max-w-[200px] sm:max-w-none shadow-cyber/20">R.L. Jalappa Institute of Technology</span>
+              <div className="flex flex-col items-center gap-1 max-w-[200px] sm:max-w-none shadow-cyber/20">
+                <span className="font-mono text-xl sm:text-2xl font-bold uppercase tracking-widest text-cyber text-center">R.L. Jalappa Institute of Technology</span>
+                <p className="text-[7px] sm:text-[9px] text-slate-500 uppercase tracking-wider opacity-70 italic text-center">
+                  (Approved by AICTE, New Delhi | Affiliated to Visvewaraya Technological University, Belagavi)
+                </p>
+              </div>
               <div className="logo-glow-container h-16 sm:h-24 w-16 sm:w-24">
                 <div className="logo-spinning-glow"></div>
                 <div className="logo-inner">
@@ -61,7 +66,8 @@ export default function App() {
                   <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.2em] mb-1">Organised by</span>
                   <span className="text-sm sm:text-base text-slate-300 uppercase font-bold tracking-wider text-center max-w-[300px] sm:max-w-none">
                     Computer Science & Engineering<br/>
-                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)</span>
+                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)</span><br/>
+                    <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.3em] mt-2 block">AI Nexus Presents</span>
                   </span>
                 </div>
                 <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
@@ -71,9 +77,6 @@ export default function App() {
                   </div>
                 </div>
               </div>
-              <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-widest mt-4 px-4 max-w-2xl mx-auto opacity-70 italic">
-                (Approved by AICTE, New Delhi | Affiliated to Visvewaraya Technological University, Belagavi)
-              </p>
             </div>
           </div>
           <h1 className="font-mono font-bold leading-none mb-6 animate-float">
@@ -341,14 +344,14 @@ export default function App() {
             variants={revealVariants}
             transition={{ delay: 0.4 }}
           >
-            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-blue-400/30 h-full flex flex-col">
+            <div className="glass-morphism p-7 rounded-[2rem] border-white/5 relative overflow-hidden transition-all hover:translate-y-[-8px] hover:border-white/30 h-full flex flex-col">
               <div className="absolute -top-4 -right-4 text-8xl opacity-5 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🏥</div>
               <div className="relative z-10 flex flex-col h-full">
-                <h4 className="text-xl font-bold text-blue-400 mb-2">4. Healthcare & Wellness Tech</h4>
+                <h4 className="text-xl font-bold text-white mb-2">4. Healthcare & Wellness Tech</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Keeping humans alive so they can attend more hackathons."</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {['Health Apps', 'AI Diagnosis', 'Mental Wellness', 'Telemedicine'].map(tag => (
-                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-blue-400/10 text-blue-400 border border-blue-400/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
+                    <span key={tag} className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
                   ))}
                 </div>
               </div>
