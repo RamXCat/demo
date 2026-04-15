@@ -66,7 +66,7 @@ export default function App() {
                   <span className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-[0.2em] mb-1">Organised by</span>
                   <span className="text-sm sm:text-base text-slate-300 uppercase font-bold tracking-wider text-center max-w-[300px] sm:max-w-none">
                     Computer Science & Engineering<br/>
-                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)<br/>AI Nexus Presents</span>
+                    <span className="text-cyber opacity-80">(Artificial Intelligence & Machine Learning)</span>
                   </span>
                 </div>
                 <div className="logo-glow-container h-12 sm:h-16 w-12 sm:w-16">
@@ -78,8 +78,9 @@ export default function App() {
               </div>
             </div>
           </div>
-          <h1 className="font-mono font-bold leading-none mb-6 animate-float">
-            <span className="text-7xl sm:text-8xl block text-gradient tracking-tighter">HACKVERSE</span>
+          <h1 className="font-mono font-bold leading-none mb-10 animate-float flex flex-col items-center">
+            <span className="text-sm sm:text-lg text-slate-400 uppercase font-bold tracking-[0.4em] mb-0 opacity-75">AI Nexus Presents</span>
+            <span className="text-7xl sm:text-8xl block text-gradient tracking-tighter -mt-2">HACKVERSE</span>
           </h1>
           <div className="flex items-center justify-center gap-6 mb-12">
             <div className="logo-glow-container h-14 sm:h-16 w-14 sm:w-16">
@@ -465,8 +466,12 @@ export default function App() {
                 <a className="font-mono text-xs text-neon hover:text-white transition-colors underline decoration-neon/30 underline-offset-4" href="tel:9972002194">9972002194</a>
               </div>
               <div className="flex justify-between items-center py-4 border-b border-white/5 group hover:border-white/20 transition-colors">
+                <span className="text-sm font-medium text-slate-300">Mrs. Rekha K P</span>
+                <a className="font-mono text-xs text-neon hover:text-white transition-colors underline decoration-neon/30 underline-offset-4" href="tel:9620016205">9620016205</a>
+              </div>
+              <div className="flex justify-between items-center py-4 border-b border-white/5 group hover:border-white/20 transition-colors">
                 <span className="text-sm font-medium text-slate-300">Official Email</span>
-                <a className="font-mono text-xs text-cyber hover:text-white transition-colors underline decoration-cyber/30 underline-offset-4" href="mailto:hackverserljit2k26@gmail.com">hackverserljit2k26@gmail.com</a>
+                <a className="font-mono text-xs text-cyber hover:text-white transition-colors underline decoration-cyber/30 underline-offset-4" href="mailto:hackverserljit26@gmail.com">hackverserljit26@gmail.com</a>
               </div>
             </div>
           </motion.div>
@@ -511,7 +516,7 @@ export default function App() {
         <div className="flex justify-center gap-6 text-xs text-slate-400 mt-8">
           <a className="hover:text-white transition-colors underline decoration-white/10 underline-offset-4" href="https://maps.app.goo.gl/YkiEB8JC96HwJpFv9" target="_blank" rel="noreferrer">Location</a>
           <a className="hover:text-white transition-colors underline decoration-white/10 underline-offset-4" href="https://rljit.in" target="_blank" rel="noreferrer">Institution</a>
-          <a className="hover:text-white transition-colors underline decoration-white/10 underline-offset-4" href="mailto:hackverserljit2k26@gmail.com">Contact</a>
+          <a className="hover:text-white transition-colors underline decoration-white/10 underline-offset-4" href="mailto:hackverserljit26@gmail.com">Contact</a>
         </div>
         <div className="mt-12 opacity-40 grayscale invert brightness-200">
           <img 
