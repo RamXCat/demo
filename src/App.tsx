@@ -106,7 +106,7 @@ export default function App() {
           </div>
           <div className="glass-morphism rounded-xl p-4 text-left border-l-2 border-l-white/20 group transition-all hover:translate-y-[-4px]">
             <p className="text-[10px] font-mono text-slate-500 uppercase mb-1">Entry Fee</p>
-            <p className="text-sm font-bold">₹600 / Team</p>
+            <p className="text-sm font-bold">₹599 / Team</p>
           </div>
           <a 
             href="https://maps.app.goo.gl/YkiEB8JC96HwJpFv9" 
