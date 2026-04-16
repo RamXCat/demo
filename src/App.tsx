@@ -123,6 +123,10 @@ export default function App() {
             <p className="text-[10px] font-mono text-slate-500 uppercase mb-1">Entry Fee</p>
             <p className="text-sm font-bold">₹599 / Team</p>
           </div>
+          <div className="glass-morphism rounded-xl p-4 text-left border-l-2 border-l-cyber group transition-all hover:translate-y-[-4px]">
+            <p className="text-[10px] font-mono text-slate-500 uppercase mb-1">Reporting</p>
+            <p className="text-sm font-bold group-hover:text-cyber transition-colors">09:00 AM</p>
+          </div>
           <a 
             href="https://maps.app.goo.gl/YkiEB8JC96HwJpFv9" 
             target="_blank" 
