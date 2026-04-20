@@ -288,7 +288,7 @@ export default function App() {
                 <h4 className="text-xl font-bold text-cyber mb-2">1. AI for Social Impact</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Code with a conscience, not just caffeine."</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {['Education', 'Accessibility', 'Rural Tech', 'Bias Detection', 'Mental Health', 'Smart Governance'].map(tag => (
+                  {['Smart Agriculture', 'AI in Education', 'Disaster Prediction', 'Environmental Sustainability', 'Accessibility', 'Public Safety'].map(tag => (
                     <span key={tag} className="text-[9px] px-3 py-1.5 bg-cyber/10 text-cyber border border-cyber/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
                   ))}
                 </div>
@@ -310,7 +310,7 @@ export default function App() {
                 <h4 className="text-xl font-bold text-neon mb-2">2. Cybersecurity & Blockchain</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Basically the wild west with WiFi."</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {['Phishing Detection', 'Web3 Security', 'Blockchain Voting', 'Privacy Tools', 'Fraud Prevention'].map(tag => (
+                  {['Secure Auth', 'Blockchain Voting', 'Decentralized Identity', 'Smart Contracts', 'Fraud Detection', 'Data Privacy', 'Web3'].map(tag => (
                     <span key={tag} className="text-[9px] px-3 py-1.5 bg-neon/10 text-neon border border-neon/20 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
                   ))}
                 </div>
@@ -332,7 +332,7 @@ export default function App() {
                 <h4 className="text-xl font-bold text-white mb-2">3. IoT & Smart Systems</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Turning dumb objects into overachievers."</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {['Smart Cities', 'Wearables', 'Automation', 'Environment', 'Smart Homes'].map(tag => (
+                  {['Smart Homes', 'Smart Cities', 'Industrial IoT', 'Wearables', 'Energy-efficient', 'Edge Computing'].map(tag => (
                     <span key={tag} className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
                   ))}
                 </div>
@@ -354,7 +354,7 @@ export default function App() {
                 <h4 className="text-xl font-bold text-white mb-2">4. Healthcare & Wellness Tech</h4>
                 <p className="text-sm text-slate-400 italic mb-6 leading-relaxed">"Keeping humans alive so they can attend more hackathons."</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {['Health Apps', 'AI Diagnosis', 'Mental Wellness', 'Telemedicine'].map(tag => (
+                  {['Telemedicine', 'Mental Health', 'Fitness Tracking', 'AI Diagnosis', 'Remote Monitoring', 'Data Management'].map(tag => (
                     <span key={tag} className="text-[9px] px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-full font-bold uppercase tracking-tighter">{tag}</span>
                   ))}
                 </div>
@@ -377,42 +377,64 @@ export default function App() {
           <h3 className="text-3xl font-bold text-white tracking-tight">Rules & Scoring</h3>
         </motion.div>
 
-        <div className="space-y-8">
-          <motion.div 
-            className="flex gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={revealVariants}
-            transition={{ delay: 0.1 }}
-          >
-            <span className="font-mono text-neon font-bold text-lg">01</span>
-            <p className="text-sm text-slate-300 leading-relaxed pt-1">All development must happen during the 24-hour window. Pre-built projects are strictly prohibited.</p>
-          </motion.div>
-          <motion.div 
-            className="flex gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={revealVariants}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="font-mono text-neon font-bold text-lg">02</span>
-            <p className="text-sm text-slate-300 leading-relaxed pt-1">Open-source libraries are allowed, but core logic must be your own work created on-site.</p>
-          </motion.div>
-          <motion.div 
-            className="flex gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={revealVariants}
-            transition={{ delay: 0.3 }}
-          >
-            <span className="font-mono text-neon font-bold text-lg">03</span>
-            <p className="text-sm text-slate-300 leading-relaxed pt-1">Final submission: Source code, Presentation (PPT), and a functional live demo.</p>
-          </motion.div>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-8">
+            <div>
+              <h4 className="text-neon font-mono text-xs uppercase tracking-[0.2em] mb-6">General Rules</h4>
+              <div className="space-y-4">
+                {[
+                  "Continuous 24-hour development on-site only.",
+                  "Team size: 2–4 members (interdisciplinary encouraged).",
+                  "All core logic must be developed during the event.",
+                  "Bring Your Own Problem (BYOP) or select predefined ones.",
+                  "Plagiarism leads to immediate disqualification."
+                ].map((rule, i) => (
+                  <div key={i} className="flex gap-4 group">
+                    <span className="font-mono text-neon/40 text-xs mt-1">0{i+1}</span>
+                    <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">{rule}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
+            <div>
+              <h4 className="text-cyber font-mono text-xs uppercase tracking-[0.2em] mb-6">Submission (Required)</h4>
+              <div className="glass-morphism p-5 rounded-2xl border-white/5 space-y-3">
+                {["Source Code (GitHub)", "Project Presentation (PPT/PDF)", "Live Demo & Video (if applicable)"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-xs text-slate-300">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyber shadow-[0_0_8px_rgba(0,243,255,0.5)]"></div>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
+          <div className="space-y-8">
+            <div>
+              <h4 className="text-red-500 font-mono text-xs uppercase tracking-[0.2em] mb-6">Prohibited Activities</h4>
+              <div className="bg-red-500/5 border border-red-500/10 p-6 rounded-2xl space-y-4">
+                {[
+                  "Use of fully pre-built projects.",
+                  "Copying code from other teams.",
+                  "Tampering with other teams' work.",
+                  "Unethical or illegal activities."
+                ].map((warn, i) => (
+                  <div key={i} className="flex gap-3">
+                    <span className="text-red-500 text-xs">✕</span>
+                    <p className="text-xs text-slate-400 font-medium">{warn}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-white/60 font-mono text-xs uppercase tracking-[0.2em] mb-6">Code of Conduct</h4>
+              <p className="text-xs text-slate-500 leading-relaxed italic border-l border-white/10 pl-4">
+                Maintain respectful and professional behavior. No harassment or discrimination. Participants are responsible for their own belongings. Maintain health and take breaks.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
