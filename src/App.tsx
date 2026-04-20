@@ -384,7 +384,8 @@ export default function App() {
               <div className="space-y-4">
                 {[
                   "Continuous 24-hour development on-site only.",
-                  "Team size: 2–4 members (interdisciplinary encouraged).",
+                  "Team size: 2–4 members from the same institution.",
+                  "Cross-college teams are not permitted.",
                   "All core logic must be developed during the event.",
                   "Bring Your Own Problem (BYOP) or select predefined ones.",
                   "Plagiarism leads to immediate disqualification."
